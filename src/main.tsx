@@ -4,10 +4,6 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import Home from "./pages/Home";
 import Characters from "./pages/Characters";
 import CharacterDetails from "./pages/CharacterDetails";
-import { ThemeProvider } from "./context/lightmode";
-
-// ThemeProvider
-
 
 
 const router = createBrowserRouter([

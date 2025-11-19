@@ -33,6 +33,7 @@ export default function Characters() {
             setCharacters(data.results as Character[]);
         } catch (err) {
             setError("Impossible de charger les personnages");
+            console.log(error);
         } finally {
             setLoading(false);
         }

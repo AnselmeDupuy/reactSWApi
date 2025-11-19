@@ -7,7 +7,6 @@ function CharacterDetails() {
     const [character, setCharacter] = useState<Character | null>(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState<string | null>(null);
-    const [films, setFilms] = useState<string[]>([]);
 
     useEffect(() => {
         if (id) {
@@ -35,19 +34,11 @@ function CharacterDetails() {
             }
         };
 
-    const filmTitles = async () => await Promise.all(
-        character.films.map(async (filmUrl) => {
-            const res = await fetch(filmUrl);
-            const filmData = await res.json();
-            return filmData.title;
-        })
-    );
-
     return(
         <div>
             {loading && <p>Loading…</p>}
             {error && <p>{error}</p>}
-            {character && (
+            {!!character && (
                 <div>
                     <h2>{character.name}</h2>
                     <p>Height: {character.height}</p>
@@ -61,8 +52,6 @@ function CharacterDetails() {
     
     ) 
 }
-
-
 
 
 export default CharacterDetails;
